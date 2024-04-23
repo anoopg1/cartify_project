@@ -13,7 +13,8 @@ class ScreenCart extends StatelessWidget {
       viewModelBuilder: () => CartViewModel(),
       builder: (context, viewModel, child) => Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: true,
+          centerTitle: true,
+          automaticallyImplyLeading: false,
           leading: IconButton(
             onPressed: () {},
             icon: const Icon(
@@ -26,7 +27,7 @@ class ScreenCart extends StatelessWidget {
             style: TextStyle(color: appGreen),
           ),
         ),
-        body: CartWidget(),
+        body: Align(alignment: Alignment.center, child: CartWidget()),
       ),
     );
   }

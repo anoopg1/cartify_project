@@ -1,3 +1,4 @@
+import 'package:cartify_app/ui/cart/screen_cart.dart';
 import 'package:cartify_app/ui/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: ScreenCart(),
     );
   }
 }
