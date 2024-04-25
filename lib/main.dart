@@ -1,8 +1,11 @@
-import 'package:cartify_app/ui/cart/screen_cart.dart';
-import 'package:cartify_app/ui/splash_screen/splash_screen.dart';
+import 'package:cartify_app/app/app.locator.dart';
+import 'package:cartify_app/app/app.router.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:stacked_services/stacked_services.dart';
 
-void main() {
+void main() async {
+  await setupLocator();
   runApp(const MyApp());
 }
 
@@ -11,9 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.senTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: ScreenCart(),
+      navigatorKey: StackedService.navigatorKey,
+      onGenerateRoute: StackedRouter().onGenerateRoute,
     );
   }
 }

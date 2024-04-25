@@ -11,7 +11,9 @@ import 'package:cartify_app/ui/change_address/screen_change_address.dart'
     as _i4;
 import 'package:cartify_app/ui/checkout/sreen_checkout.dart' as _i5;
 import 'package:cartify_app/ui/failure_page/screen_failure.dart' as _i6;
+import 'package:cartify_app/ui/get_started/screen_get_started.dart' as _i20;
 import 'package:cartify_app/ui/home/screen_home.dart' as _i7;
+import 'package:cartify_app/ui/landing_page/screen_landing_page.dart' as _i21;
 import 'package:cartify_app/ui/login/screen_login.dart' as _i8;
 import 'package:cartify_app/ui/login_signup/screen_login_signup.dart' as _i9;
 import 'package:cartify_app/ui/order_history/screen_order_history.dart' as _i10;
@@ -25,10 +27,10 @@ import 'package:cartify_app/ui/splash_screen/splash_screen.dart' as _i16;
 import 'package:cartify_app/ui/success_page/screen_success_page.dart' as _i17;
 import 'package:cartify_app/ui/track_order/screen_track_orer.dart' as _i18;
 import 'package:cartify_app/ui/wishlist/screen_wishlist.dart' as _i19;
-import 'package:flutter/material.dart' as _i20;
+import 'package:flutter/material.dart' as _i22;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i21;
+import 'package:stacked_services/stacked_services.dart' as _i23;
 
 class Routes {
   static const screenCart = '/screen-cart';
@@ -59,13 +61,17 @@ class Routes {
 
   static const screenSignup = '/screen-signup';
 
-  static const splashScreen = '/splash-screen';
+  static const splashScreen = '/';
 
   static const screenSuccessPage = '/screen-success-page';
 
   static const screenTrackOrder = '/screen-track-order';
 
   static const screenWishlist = '/screen-wishlist';
+
+  static const screenGetStarted = '/screen-get-started';
+
+  static const screenLandingPage = '/screen-landing-page';
 
   static const all = <String>{
     screenCart,
@@ -86,6 +92,8 @@ class Routes {
     screenSuccessPage,
     screenTrackOrder,
     screenWishlist,
+    screenGetStarted,
+    screenLandingPage,
   };
 }
 
@@ -163,114 +171,134 @@ class StackedRouter extends _i1.RouterBase {
       Routes.screenWishlist,
       page: _i19.ScreenWishlist,
     ),
+    _i1.RouteDef(
+      Routes.screenGetStarted,
+      page: _i20.ScreenGetStarted,
+    ),
+    _i1.RouteDef(
+      Routes.screenLandingPage,
+      page: _i21.ScreenLandingPage,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.ScreenCart: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.ScreenCart(),
         settings: data,
       );
     },
     _i3.ScreenCategory: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.ScreenCategory(),
         settings: data,
       );
     },
     _i4.ScreenChangeAddress: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.ScreenChangeAddress(),
         settings: data,
       );
     },
     _i5.ScreenCheckOut: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.ScreenCheckOut(),
         settings: data,
       );
     },
     _i6.ScreenFailure: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ScreenFailure(),
         settings: data,
       );
     },
     _i7.ScreenHome: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.ScreenHome(),
         settings: data,
       );
     },
     _i8.ScreenLogin: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.ScreenLogin(),
         settings: data,
       );
     },
     _i9.ScreenLoginSignup: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.ScreenLoginSignup(),
         settings: data,
       );
     },
     _i10.ScreenOrderHistory: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.ScreenOrderHistory(),
         settings: data,
       );
     },
     _i11.ScreenPaymentSettings: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ScreenPaymentSettings(),
         settings: data,
       );
     },
     _i12.ScreenPopular: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.ScreenPopular(),
         settings: data,
       );
     },
     _i13.ScreenProfilePage: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ScreenProfilePage(),
         settings: data,
       );
     },
     _i14.ScreenSearch: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.ScreenSearch(),
         settings: data,
       );
     },
     _i15.ScreenSignup: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.ScreenSignup(),
         settings: data,
       );
     },
     _i16.SplashScreen: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.SplashScreen(),
         settings: data,
       );
     },
     _i17.ScreenSuccessPage: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.ScreenSuccessPage(),
         settings: data,
       );
     },
     _i18.ScreenTrackOrder: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.ScreenTrackOrder(),
         settings: data,
       );
     },
     _i19.ScreenWishlist: (data) {
-      return _i20.MaterialPageRoute<dynamic>(
+      return _i22.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.ScreenWishlist(),
+        settings: data,
+      );
+    },
+    _i20.ScreenGetStarted: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i20.ScreenGetStarted(),
+        settings: data,
+      );
+    },
+    _i21.ScreenLandingPage: (data) {
+      return _i22.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i21.ScreenLandingPage(),
         settings: data,
       );
     },
@@ -283,7 +311,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i21.NavigationService {
+extension NavigatorStateExtension on _i23.NavigationService {
   Future<dynamic> navigateToScreenCart([
     int? routerId,
     bool preventDuplicates = true,
@@ -536,6 +564,34 @@ extension NavigatorStateExtension on _i21.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToScreenGetStarted([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.screenGetStarted,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToScreenLandingPage([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.screenLandingPage,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithScreenCart([
     int? routerId,
     bool preventDuplicates = true,
@@ -782,6 +838,34 @@ extension NavigatorStateExtension on _i21.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.screenWishlist,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithScreenGetStarted([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.screenGetStarted,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithScreenLandingPage([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.screenLandingPage,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

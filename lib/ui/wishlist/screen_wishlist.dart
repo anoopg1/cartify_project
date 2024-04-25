@@ -22,7 +22,7 @@ class ScreenWishlist extends StatelessWidget {
             ),
           ),
           title: const Text(
-            'category',
+            'Wishlist',
             style: TextStyle(color: appGreen),
           ),
         ),

@@ -12,7 +12,9 @@ class SplashScreen extends StatelessWidget {
     final deviceWidth = MediaQuery.sizeOf(context).width;
     return ViewModelBuilder.reactive(
       viewModelBuilder: () => SplashScreenViewModel(),
-      onViewModelReady: (viewModel) {},
+      onViewModelReady: (viewModel) {
+        viewModel.checkUsedLoggedIn();
+      },
       builder: (context, viewModel, child) {
         return Scaffold(
           backgroundColor: appGreen,
