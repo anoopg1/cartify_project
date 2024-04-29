@@ -14,20 +14,17 @@ class ScreenCart extends StatelessWidget {
       builder: (context, viewModel, child) => Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          automaticallyImplyLeading: false,
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back,
-              color: appGreen,
-            ),
-          ),
+          automaticallyImplyLeading: true,
+         iconTheme: const IconThemeData(color: appGreen),
           title: const Text(
             'My Cart',
-            style: TextStyle(color: appGreen),
+            style: TextStyle(color: appBlack),
           ),
         ),
-        body: Align(alignment: Alignment.center, child: CartWidget()),
+        body:ListView.separated(itemBuilder: (context, index) =>  const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: CartWidget(image: "", productName: "Nike", price: "₹6000"),
+        ), separatorBuilder: (context, index) => const SizedBox(height: 5,), itemCount: 4),
       ),
     );
   }

@@ -14,17 +14,18 @@ class CategoryWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: deviceWidth * 0.40,
+          height: deviceWidth * 0.38,
           width: deviceWidth * 0.50,
           decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
               image: DecorationImage(
                   filterQuality: FilterQuality.high,
                   fit: BoxFit.cover,
-                  image: NetworkImage(imageUrl))),
+                  image:AssetImage(imageUrl))),
         ),
         Text(
           categoryName,
-          style: TextStyle(
+          style: const TextStyle(
               fontWeight: FontWeight.bold, color: appBlack, fontSize: 16),
         )
       ],

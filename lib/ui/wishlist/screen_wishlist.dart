@@ -1,6 +1,6 @@
 import 'package:cartify_app/core/colors/colors.dart';
 import 'package:cartify_app/ui/wishlist/wishlist_viewmodel.dart';
-import 'package:cartify_app/widgets/cart_widget.dart';
+import 'package:cartify_app/widgets/wishlist_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -13,20 +13,18 @@ class ScreenWishlist extends StatelessWidget {
       viewModelBuilder: () => WishlistViewModel(),
       builder: (context, viewModel, child) => Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           automaticallyImplyLeading: true,
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              Icons.arrow_back,
-              color: appGreen,
-            ),
-          ),
+          iconTheme: const IconThemeData(color: appGreen),
           title: const Text(
             'Wishlist',
-            style: TextStyle(color: appGreen),
+            style: TextStyle(color: appBlack,fontWeight: FontWeight.bold),
           ),
         ),
-        body: CartWidget(),
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView.separated(itemBuilder: (context, index) => const WishListWidget(image: "assets/images/nike_blue.png", productName: "Nike Air Max AP", price: "₹ 6000"), separatorBuilder: (context, index) => const SizedBox(height: 10,), itemCount: 3),
+        ),
       ),
     );
   }

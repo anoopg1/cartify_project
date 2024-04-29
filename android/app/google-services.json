@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "46657008438",
+    "project_id": "cartify-project",
+    "storage_bucket": "cartify-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46657008438:android:eb7b692bcd485eab02b997",
+        "android_client_info": {
+          "package_name": "com.example.cartify_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIfwoAMTXXG-5Q1fD7UrkkzW8c6VGn3a0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

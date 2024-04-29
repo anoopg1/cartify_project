@@ -13,4 +13,18 @@ class ApiServices {
     var list = res.products;
     return list;
   }
+
+  Future<List?> fetchCategoryData() async {
+    final productList = await fetchData();
+     Set<String> categories = <String>{};
+    for (var product in productList!) {
+      categories.add(product.category!);
+       return categories.toList();
+    }
+    return null;
+
+
+  }
+
+  
 }

@@ -3,7 +3,15 @@ import 'package:cartify_app/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 
 class CartWidget extends StatelessWidget {
-  const CartWidget({super.key});
+  const CartWidget(
+      {super.key,
+      required this.image,
+      required this.productName,
+      required this.price});
+
+  final String image;
+  final String productName;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -15,45 +23,54 @@ class CartWidget extends StatelessWidget {
       width: deviceWidth * 0.90,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: cartGrey,
+        color: const Color(0xFFECEAEA),
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 12, bottom: 12),
-            child: Assets.images.nikeBlue.image(),
-          ),
-          const Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Nike air 2344",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 17, color: appGrey),
-              ),
-              Text(
-                "₹ 6000",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
-              ),
-            ],
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border.all(width: 2, color: appBlack),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: const Row(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 5, bottom: 5),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Icon(Icons.remove),
-                Text("1"),
-                Icon(Icons.add),
+                Row(
+                  children: [
+                    Assets.images.nikeBlue.image(height: 85, width: 100),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "  $productName",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, color: appBlack),
+                        ),
+                        Text(
+                          "  $price",
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Container(
+                  // width: deviceWidth*0.27,
+                  // height: deviceWidth*0.085,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(width: 1, color: appGrey)),
+                  child: Row(
+                    children: [
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.remove)),
+                      const Text("1"),
+                      IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                    ],
+                  ),
+                )
               ],
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }

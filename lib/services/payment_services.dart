@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 class PaymentServices {
-  static const platform = const MethodChannel("razorpay_flutter");
+  static const platform = MethodChannel("razorpay_flutter");
   late Razorpay _razorpay;
 
   void _handlePaymentSuccess(PaymentSuccessResponse response) {
@@ -42,8 +42,8 @@ class PaymentServices {
       'key': 'rzp_live_ILgsfZCZoFIKMb',
       //amt in pisa
       'amount': amt * 100,
-      'name': '${shopname}',
-      'description': '${discription}',
+      'name': shopname,
+      'description': discription,
       'retry': {'enabled': true, 'max_count': 1},
       'send_sms_hash': true,
       'prefill': {'contact': '9074858214', 'email': 'zoople@gmail.com'},

@@ -1,6 +1,5 @@
 import 'package:cartify_app/core/colors/colors.dart';
 import 'package:cartify_app/ui/track_order/track_order_viewmodel.dart';
-import 'package:cartify_app/widgets/cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -26,7 +25,7 @@ class ScreenTrackOrder extends StatelessWidget {
             style: TextStyle(color: appGreen),
           ),
         ),
-        body: CartWidget(),
+        body: Container(),
       ),
     );
   }

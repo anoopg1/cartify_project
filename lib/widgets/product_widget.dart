@@ -37,25 +37,28 @@ class ProductWidget extends StatelessWidget {
               ),
               Text(
                 brand,
+                softWrap: false,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 15, color: appGrey),
               ),
               Text(
                 productName,
+                softWrap: false,
                 style: const TextStyle(
                     fontWeight: FontWeight.bold, fontSize: 15, color: appBlack),
               ),
               Row(
                 children: [
                   Text(
-                    "$price  ",
+                    "₹ $price  ",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,
                         color: appBlack),
                   ),
                   Text(
-                    price,
+                    "₹ $price",
+                    
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 15,

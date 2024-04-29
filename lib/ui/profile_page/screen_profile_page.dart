@@ -1,7 +1,7 @@
 import 'package:cartify_app/core/colors/colors.dart';
 import 'package:cartify_app/ui/profile_page/profile_page_viewmodel.dart';
-import 'package:cartify_app/widgets/cart_widget.dart';
-import 'package:cartify_app/widgets/custom_button.dart';
+import 'package:cartify_app/widgets/profile_menu_widget.dart';
+
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,347 +12,154 @@ class ScreenProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.sizeOf(context).height;
     final deviceWidth = MediaQuery.sizeOf(context).width;
+
     return ViewModelBuilder.reactive(
-        viewModelBuilder: () => ProfilePageViewModel(),
-        builder: (context, viewModel, child) => Scaffold(
-              appBar: AppBar(
-                leading: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.arrow_back,
-                    size: 28,
-                    color: Color(0xFF317773),
-                  ),
-                ),
-                title: const Text(
-                  "Profile",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-                ),
-                centerTitle: true,
+      viewModelBuilder: () => ProfilePageViewModel(),
+      builder: (context, viewModel, child) => Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+            onPressed: () {},
+            icon: const Icon(
+              Icons.arrow_back,
+              color: appGreen,
+            ),
+          ),
+          centerTitle: true,
+          title: const Text(
+            "Profile",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Padding(
+          padding:
+              const EdgeInsets.only(left: 25, right: 25, top: 5, bottom: 10),
+          child: ListView(
+            children: [
+              Container(
+                height: deviceWidth * 0.25,
+                decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                        image: NetworkImage(
+                            "https://cdn.pixabay.com/photo/2022/10/17/15/02/photography-7527978_960_720.jpg"))),
               ),
-              body: Padding(
-                padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
-                child: ListView(
+              const Center(
+                  child: Text(
+                "Rony Paul Benny",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              )),
+              const Center(
+                child: Text("ronypaul@gmail.com",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, color: appGrey)),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                " Account Settings",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Container(
+                height: (viewModel.accountSettings.length + 1) * 42,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: appGrey,
+                    ),
+                    borderRadius: BorderRadius.circular(10)),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => ProfileMenuWidget(
+                      icon: viewModel.accountSettings[index].icon,
+                      menuTitle: viewModel.accountSettings[index].menuTitle,
+                      onpressed: () {}),
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: viewModel.accountSettings.length,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                " Orders",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Container(
+                height: (viewModel.orders.length + 1) * 33,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: appGrey,
+                    ),
+                    borderRadius: BorderRadius.circular(10)),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => ProfileMenuWidget(
+                      icon: viewModel.orders[index].icon,
+                      menuTitle: viewModel.orders[index].menuTitle,
+                      onpressed: () {}),
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: viewModel.orders.length,
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              const Text(
+                " General",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+              ),
+              Container(
+                height: (viewModel.general.length + 1) * 42,
+                decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1,
+                      color: appGrey,
+                    ),
+                    borderRadius: BorderRadius.circular(10)),
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (context, index) => ProfileMenuWidget(
+                      icon: viewModel.general[index].icon,
+                      menuTitle: viewModel.general[index].menuTitle,
+                      onpressed: () {}),
+                  separatorBuilder: (context, index) => const Divider(),
+                  itemCount: viewModel.general.length,
+                ),
+              ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: deviceHeight * 0.060,
+                width: deviceWidth * 0.77,
+                decoration: BoxDecoration(
+                    color: Colors.red, borderRadius: BorderRadius.circular(12)),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const SizedBox(
-                      height: 30,
+                    Icon(
+                      Icons.logout,
+                      color: appWhite,
                     ),
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        height: deviceWidth * 0.30,
-                        width: deviceWidth * 0.40,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                "https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?size=626&ext=jpg",
-                              ),
-                              fit: BoxFit.cover),
-                        ),
-                      ),
-                    ),
-                    const Center(
-                        child: Padding(
-                      padding: EdgeInsets.only(top: 10),
-                      child: Text(
-                        "Rony Paul Benny",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 26,
-                            color: Color(0xFF4F4E4E)),
-                      ),
-                    )),
-                    const Center(
-                      child: Text(
-                        "ronypaul@gmail.com",
-                        style: TextStyle(
+                    Text(
+                      "  Log Out",
+                      style: TextStyle(
+                          color: appWhite,
                           fontWeight: FontWeight.bold,
-                          fontSize: 16,
-                          color: Color(0xFF7D7B7B),
-                        ),
-                      ),
+                          fontSize: 20),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10, bottom: 13, top: 13),
-                      child: Text(
-                        "Account Settings",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      ),
-                    ),
-                    Container(
-                      height: deviceHeight * 0.33,
-                      width: deviceWidth * 0.90,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1.6,
-                            color: const Color(0xFF7D7B7B),
-                          ),
-                          borderRadius: BorderRadius.circular(13)),
-                      child: const Column(
-                        children: [
-                          ListTile(
-                            leading: Icon(
-                              Icons.person,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Edit Profile",
-                              style: TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 22,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.lock,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Security",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.contact_page_outlined,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Saved Address",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.credit_card,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Payment Settings",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10, bottom: 13, top: 13),
-                      child: Text(
-                        "Orders",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      ),
-                    ),
-                    Container(
-                      height: deviceHeight * 0.18,
-                      width: deviceWidth * 0.90,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1.6,
-                            color: const Color(0xFF7D7B7B),
-                          ),
-                          borderRadius: BorderRadius.circular(13)),
-                      child: const Column(
-                        children: [
-                          ListTile(
-                            leading: Icon(
-                              Icons.person,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Edit Profile",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.lock,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Security",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 10, bottom: 13, top: 13),
-                      child: Text(
-                        "General",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: 24),
-                      ),
-                    ),
-                    Container(
-                      height: deviceHeight * 0.33,
-                      width: deviceWidth * 0.90,
-                      decoration: BoxDecoration(
-                          border: Border.all(
-                            width: 1.6,
-                            color: const Color(0xFF7D7B7B),
-                          ),
-                          borderRadius: BorderRadius.circular(13)),
-                      child: const Column(
-                        children: [
-                          ListTile(
-                            leading: Icon(
-                              Icons.money,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Invite & Earn",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.local_offer_outlined,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Coupons",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.notifications,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Notifications",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                          Divider(
-                            thickness: 1.6,
-                          ),
-                          ListTile(
-                            leading: Icon(
-                              Icons.headphones,
-                              size: 38,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                            title: Text(
-                              "Help Center",
-                              style: TextStyle(
-                                fontSize: 23,
-                              ),
-                            ),
-                            trailing: Icon(
-                              Icons.arrow_forward_ios,
-                              size: 30,
-                              color: Color(0xFF3E7F7B),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20, bottom: 20),
-                      child: CustomButton(
-                          height: deviceHeight * 0.070,
-                          width: deviceWidth * 0.70,
-                          text: "Log Out",
-                          buttonColor: Colors.red,
-                          textColor: appWhite,
-                          function: () {}),
-                    )
                   ],
                 ),
-              ),
-            ));
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -85,7 +85,7 @@ class ScreenLogin extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Assets.images.fbLogo.image(height: deviceWidth * 0.10),
-                        SizedBox(
+                        const SizedBox(
                           width: 30,
                         ),
                         Assets.images.googleLogo
